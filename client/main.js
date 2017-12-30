@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor'; //meteor modules in meteor director
 import { Players } from './../imports/api/players';
 import {Tracker} from 'meteor/tracker';
 import TitleBar from './../imports/ui/TitleBar';
+import AddPlayer from './../imports/ui/AddPlayer';
 
 
 
@@ -46,8 +47,9 @@ Meteor.startup(() => {
         let title = 'Score Keep';
         let jsx = (
             <div>
-                <TitleBar />
+                <TitleBar title={title} />
                 {renderPlayers(players)}
+                <AddPlayer />
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="playerName" placeholder="Player Name..." />
                     <button>Add Player</button>
