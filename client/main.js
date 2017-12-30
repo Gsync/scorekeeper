@@ -6,15 +6,20 @@ import {Tracker} from 'meteor/tracker';
 
 
 
-const renderPlayers = function (players) {
-    return players.map(function (player) {
+const renderPlayers = (players) => {
+    return players.map((player) => {
          return (
-         <p key={player._id}>{player.name} has {player.score} points.</p>
+            <p key={player._id}>
+                {player.name} has {player.score} points.
+                <button onClick={() => Players.remove({ _id: player._id })}>
+                    Delete
+                </button>
+            </p>
          );
     });
 };
 
-const handleSubmit = function (e) {
+const handleSubmit = (e) => {
     e.preventDefault();
     let playerName = e.target.playerName.value; //form input name property
     if (playerName) {
@@ -26,9 +31,9 @@ const handleSubmit = function (e) {
     }
 };
 
-Meteor.startup(function () {
+Meteor.startup(() => {
 
-    Tracker.autorun(function () {
+    Tracker.autorun(() => {
         let players = Players.find().fetch();
         let title = 'Score Keep';
         let name = 'Khuram';
@@ -37,7 +42,7 @@ Meteor.startup(function () {
                 <h1>{title}</h1>
                 <p>Hello {name}!</p>
                 {renderPlayers(players)}
-                <form action="POST" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <input type="text" name="playerName" placeholder="Player Name..." />
                     <button>Add Player</button>
                 </form>
