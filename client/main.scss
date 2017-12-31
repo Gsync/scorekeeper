@@ -1,0 +1,27 @@
+/* CSS declarations go here */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #555;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+
+h1 {
+    font-weight: 300;
+    font-size: 2.3rem;
+}
+
+.title-bar {
+    background-color: #e35557;
+    color: #fff;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 40rem;
+    padding: 0.8rem;
+}
