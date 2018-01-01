@@ -8,7 +8,11 @@ export default class PlayerList extends React.Component {
                 return <Player key={player._id} player={player} />;
             });
         } else {
-            return <p>There are no players added yet, Please add one!</p>;
+            return (
+                <div className="item">
+                    <p>There are no players added yet, Please add one!</p>
+                </div>
+            );
         }
     }
     render () {
