@@ -10,7 +10,7 @@ export default class PlayerList extends React.Component {
         } else {
             return (
                 <div className="item">
-                    <p>There are no players added yet, Please add one!</p>
+                    <p className="item__message">There are no players added yet, Please add one!</p>
                 </div>
             );
         }
